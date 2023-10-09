@@ -41,7 +41,7 @@ const CalendarPage = () => {
            
             <DatePanel sort="date" position="left" />
           ]}
-          mapDays={({ date, isSameDate }) => {
+          mapDays={({ date, isSameDate,selectedDate }) => {
             let props = {};
             props.className = "rounded-[3px]  text-white";
 
@@ -52,6 +52,8 @@ const CalendarPage = () => {
                 props.className = `${props.className} text-red-800 bg-red-300`;
               }
             }
+
+            if(isSameDate(date, selectedDate)) props.className = "text-purple-900"
 
             return props;
           }}
