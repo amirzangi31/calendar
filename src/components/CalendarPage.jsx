@@ -6,6 +6,7 @@ import holidays from "../data/holidays";
 
 import { convertDates, convertToString } from "../helper/functions";
 
+import DatePanel from "react-multi-date-picker/plugins/date_panel";
 
 const CalendarPage = () => {
   const [value, setValue] = useState([]);
@@ -32,10 +33,14 @@ const CalendarPage = () => {
         <Calendar
           range
           multiple={true}
-          className="bg-teal-300 shadow-3xl rounded-lg"
+          className="bg-teal-300 shadow-3xl rounded-lg "
           value={value}
           onChange={setValue}
           format="YYYY/MM/DD"
+          plugins={[
+           
+            <DatePanel sort="date" position="left" />
+          ]}
           mapDays={({ date, isSameDate }) => {
             let props = {};
             props.className = "rounded-[3px]  text-white";
